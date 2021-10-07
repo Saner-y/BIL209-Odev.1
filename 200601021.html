@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIL209 ODEV</title>
+  </head>
+  <body>
+    <center><h1><i>HESAP MAKİNESİ</i></h1></center>
+      <style>
+        h1 {
+            font-family: Tahoma, sans-serif;
+            color: darkred;
+        }
+    #page{
+        height: auto;
+        width: 350px;
+        background-color: mediumslateblue;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+    .button{
+        font-size: large;
+        border-radius: 20px;
+        background-color: lightyellow;
+        padding: 25px;
+        margin: 1px;
+        width: 80px;
+    }
+    #sonuc{
+        height: 150px;
+    }
+    #sifir{
+        width: 168px;
+    }
+    .text{
+        width: 336px;
+        position: relative;
+        left:4px;
+        height: 70px;
+        margin: 10px 0px;
+        border-radius: 5px;
+        font-family:'Tahoma', 'Verdana', Arial, sans-serif;
+        font-size: large;
+        text-align: 20px;
+    }
+      </style>
+      <div id = "page">
+<form name="form">
+    <input type ="text" name="text" class="text">
+</form>
+<table>
+    <tr>
+     <td> <input type="button" class="button" onclick="sıfırla()"value="C"></td> 
+     <td> <input type="button" class="button" onclick="islem('*')"value="*"></td>
+     <td> <input type="button" class="button" onclick="islem('/')"value="/"></td>
+     <td> <input type="button" class="button" onclick="gerial()"value="←"></td>
+    </tr>
+    <tr>
+        <td> <input type="button" class="button" onclick="islem(7)"value="7"></td>
+        <td> <input type="button" class="button" onclick="islem(8)"value="8"></td>
+        <td> <input type="button" class="button" onclick="islem(9)"value="9"></td>
+        <td> <input type="button" class="button" onclick="islem('-')"value="-"></td>
+       </tr>
+       <tr>
+        <td> <input type="button" class="button" onclick="islem(4)"value="4"></td>
+        <td> <input type="button" class="button" onclick="islem(5)"value="5"></td>
+        <td> <input type="button" class="button" onclick="islem(6)"value="6"></td>
+        <td> <input type="button" class="button" onclick="islem('+')"value="+"></td>
+       </tr>
+       <tr>
+        <td> <input type="button" class="button" onclick="islem(1)"value="1"></td>
+        <td> <input type="button" class="button" onclick="islem(2)"value="2"></td>
+        <td> <input type="button" class="button" onclick="islem(3)"value="3"></td>
+        <td rowspan="2"> <input type="button" id="sonuc" class="button"  onclick="esittir()"value="="></td>
+       </tr>
+       <tr>
+        <td colspan="2"> <input type="button" class="button" id="sifir" onclick="islem(0)"value="0"></td>
+        <td> <input type="button" class="button" onclick="islem('.')"value="."></td>
+       </tr>
+</table>
+    <tr>
+        <td>
+            <p><b>Saner Yeşil/200601021/Web Tabanlı Programlamaya Giriş Ödev</b></p>
+        </td>
+    </tr>
+    <style>
+        p { 
+            font-size: medium;
+            color: white;
+         }
+    </style>
+</div>
+<script>
+    function islem(number){
+        document.form.text.value=document.form.text.value + number;
+    }
+    function esittir(){
+        var kullan =document.form.text.value;
+        if(kullan) {
+            document.form.text.value=eval(kullan);
+        }
+    }
+    function gerial() {
+        var exp = document.form.text.value;
+        document.form.text.value=exp.substring(0,exp.length -1);
+    }
+    function sıfırla(){
+        document.form.text.value= "";
+    }
+</script>
+  </body>
